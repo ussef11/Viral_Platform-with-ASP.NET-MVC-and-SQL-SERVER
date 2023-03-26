@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyProjet.Models.Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="border p-3">
+    <h2 class="text-center pl-3">Employee List</h2>
+</div>
+
+<div class="col-6 text-right">
+    <a asp-controller="Employee" asp-action="Create" class="btn btn-dark"> Add Employee </a>
+    <a asp-controller="Employee" asp-action="index1" class="btn btn-dark"> ALL Employee with No Entity</a>
+
+
+</div>
+
+
+@if (Model.Count() > 0)
+{
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th> Id </th>
+                <th> Name </th>
+                <th> Dep </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+            <tr>
+                <th> @obj.Id  </th>
+                <th> @obj.Name </th>
+                <th> @obj.dep  </th>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+
+}
+else { 
+    <p>No Result To Show</p>
+
+}

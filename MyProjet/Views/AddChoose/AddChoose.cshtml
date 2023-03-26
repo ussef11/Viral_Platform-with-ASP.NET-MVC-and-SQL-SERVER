@@ -1,0 +1,248 @@
+﻿@model IEnumerable<MyProjet.Models.chooseQuizzes>
+
+
+@using Microsoft.AspNetCore.Http
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<link href="~/css/Form.css" rel="stylesheet" />
+<link href="~/css/chooseedit.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "AddChoose";
+}
+
+<h1>AddChoose</h1>
+
+
+<div id="form1">
+    <form asp-action="AddChoose" method="post">
+        <!--  General -->
+        @*<input id="art" asp-for="" name="Article" hidden />*@
+
+        <div class="form-group">
+            <h2 class="heading">General</h2>
+            <div class="controls">
+                <input placeholder="Title" type="text" id="name" class="floatLabel" name="choosetitle">
+
+            </div>
+
+            <div class="controls">
+                <input placeholder="Answer" type="text" id="Answer" class="floatLabel" name="Answer">
+
+            </div>
+            <div class="controls">
+                <input placeholder="CorrectAnswer" type="text" id="CorrectAnswer" class="floatLabel" name="CorrectAnswer">
+
+            </div>
+            <div class="controls">
+                <input id="image" type="file" class="floatLabel" />
+                <input hidden name="image" id="imgvalue" />
+                @*<input asp-for="imagesFlie" name="images" accept="images/*" class="floatLabel" id="customFile">*@
+            </div>
+        </div>
+        <div id="divimg">
+
+        </div>
+        <div style="display:flex" class="form-group">
+
+            <div style=" width: 160px;" class="controls">
+
+
+                <input style="border-radius: 5px;" class="bbtn" id="Button" type="submit" value="Add Quizz" />
+
+
+            </div>
+            <div style=" width: 160px;" class="mysavebtn">
+
+
+                <a href="../../Home/index" class="bbtn">Save Quizz</a>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="form2">
+    <form  asp-action="update" method="post">
+        <!--  General -->
+        @*<input id="art" asp-for="" name="Article" hidden />*@
+
+        <div class="form-group">
+            <h2 class="heading">General</h2>
+            <div class="controls">
+                <input placeholder="Title" type="text" id="name" class="floatLabel" name="choosetitle">
+
+            </div>
+
+            <div class="controls">
+                <input placeholder="Answer" type="text" id="Answer" class="floatLabel" name="Answer">
+
+            </div>
+            <div class="controls">
+                <input placeholder="CorrectAnswer" type="text" id="CorrectAnswer" class="floatLabel" name="CorrectAnswer">
+
+            </div>
+            <div class="controls">
+                <input id="image" type="file" class="floatLabel" />
+                <input hidden name="image" id="imgvalue" />
+                @*<input asp-for="imagesFlie" name="images" accept="images/*" class="floatLabel" id="customFile">*@
+            </div>
+        </div>
+        <div id="divimg">
+
+        </div>
+        <div style="display:flex" class="form-group">
+
+            <div style=" width: 160px;" class="controls">
+
+
+                <input style="border-radius: 5px;" class="bbtn" id="Button" type="submit" value="Update" />
+
+
+            </div>
+            <div style=" width: 160px;" class="mysavebtn">
+
+
+                <a href="../" class="bbtn">Cancel</a>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<section class="wrapper product">
+
+  
+        @foreach (var obj in Model)
+        {
+    <article class="card">
+        <a asp-controller="AddChoose" asp-action="delete" asp-route-num="@obj.NumchooseQuizzes" asp-route-id="@obj.NumChoose"> delete this</a>
+        <a asp-controller="AddChoose" asp-action="AddChoose"  asp-route-num="@obj.NumchooseQuizzes" asp-route-id="@obj.NumChoose"  asp-route-type="update"> Update this</a>
+        <div class="box"><img src="@obj.image"></div>
+        <header class="card-content">
+            <span id="Categorie3" runat="server" class="card-category chicken">@obj.choosetitle </span>
+            <span id="name3" runat="server" style=" background-color: white;" class="card-header">@obj.Answer</span>
+            <span id="desc3" runat="server" class="card-desc">@obj.CorrectAnswer</span>
+        </header>
+        <footer class="card-content">
+            <div class="contributor"><span runat="server" id="by3" class="contributor-name">by <a href="#">ussef</a></span></div>
+            <div class="bookmark"></div>
+        </footer>
+    </article>
+            
+         }
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<style>
+    .mysavebtn {
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #C4E8C2;
+        border: none;
+        color: black;
+        font-weight: 600;
+    }
+
+    .bbtn {
+        text-decoration: none;
+    }
+</style>
+
+<script>
+
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
+    // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+    let valu = params.type; // "some_value"
+
+
+
+
+
+
+    function clear() {
+        document.getElementById("name").value = "";
+        document.getElementById("Answer").value = "";
+        document.getElementById("CorrectAnswer").value = "";
+
+        if (valu == "update") {
+            document.getElementById("form1").remove();
+        }
+        if (valu == "" || valu == null) {
+            document.getElementById("form2").remove();
+        }
+    }
+
+    window.onload = clear();
+
+
+
+
+    var files = [];
+    var reader = new FileReader();
+    var ph = document.createElement("img")
+    var link
+    var input = document.getElementById("image");
+    var imgvalue = document.getElementById("imgvalue");
+    var divimg = document.getElementById("divimg");
+    input.onchange = e => {
+        files = e.target.files
+
+
+        reader.readAsDataURL(files[0])
+    }
+
+
+
+
+    function GetFileExt(file) {
+        var temp = file.name.split('.');
+        var ext = temp.slice((temp.lenght - 1), (temp.lenght))
+        return "." + ext[0];
+    }
+
+    function GetFileName(file) {
+        var temp = file.name.split('.');
+        var fname = temp.slice(0, -1).join(".")
+        return fname;
+    }
+
+
+    reader.onload = function () {
+        link = reader.result;
+        console.log(link);
+        ph.src = link;
+        imgvalue.value = link;
+        divimg.append(ph)
+    }
+
+
+
+
+    $(document
+    ).ready(function () {
+        $("#bbtn").click(function () {
+            location.replace("../Home/index")
+        })
+    })
+
+
+
+</script>
+

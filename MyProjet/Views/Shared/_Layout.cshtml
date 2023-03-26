@@ -1,0 +1,275 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyProjet</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="~/css/Nav.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav style="height: 65px;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div style="max-width: 600px" class="container">
+                <a style=" color: #f00; " class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-brands fa-connectdevelop"></i>Bermuda</a>
+
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div style="z-index: 10; background-color: white; margin-top: 10px; border-radius: 20px; text-align: center;" class="navbar-collapse d-sm-inline-flex flex-sm-row-reverse collapse">
+                    <div style="display:flex" class="mx-auto">
+
+                        <div style="margin-right: 50px;">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item mx-2">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+
+                             
+                           
+
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark mx-2" asp-area="">TV & Movies</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark mx-2" asp-area="">News</a>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark mx-2" asp-area=""  asp-controller="AddQuizzes" asp-action="AddQuizzes" >Quizzes</a>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="divopt">
+
+                <ul id="ulopt" class="navbar-nav flex-grow-1">
+
+                    <li class="search">
+                        <i style="color:green;" class="fa-solid fa-circle-dollar-to-slot"></i>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a id="log" class="nav-link text-dark mx-2" asp-area="" asp-controller="Users" asp-action="Register"><i style="display: @(Context.Session.GetString("Login") == null ? "initial" : "none" ) " class="fa-solid fa-right-to-bracket"></i> @(Context.Session.GetString("Login") == null ? "Sign in" : Context.Session.GetString("Login") )  </a>
+
+                    </li>
+
+                    <li class="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </li>
+                </ul>
+
+                <div id="drop" style="margin-left: auto; margin-right: 0px;">
+
+
+                    <div style="display: flex;" class="usermenu">
+                        <div>
+                            <div class="account-info">
+                                <div class="account-info-picture">
+                                    <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
+                                </div>
+                                <div class="account-info-name">  <a style=" color: #222; text-decoration: none; font-weight: 600; cursor: pointer;" class="opt"> Youssef </a></div>
+                            </div>
+                        </div>
+
+
+                        <div class="cancel-menu">
+                            <i id="icon" class="fa-solid fa-ban"></i>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="account-info">
+                        <ul style="list-style: none; text-align: left;">
+                            <li class="nav-item">  <a asp-area="" asp-controller="AddConent" asp-action="AddContent" style=" font-size: 1.2em; color: #222; text-decoration: none; font-weight: 600; cursor: pointer;" class="opt"> New Post </a></li>
+
+                            <li class="nav-item">  <a  asp-area="" asp-controller="DeleteUpdate" asp-action="Index" style=" font-size: 1.2em; color: #222; text-decoration: none; font-weight: 600; cursor: pointer;" class="opt"> Dashboard </a></li>
+                            <li class="nav-item">  <a style=" font-size: 1.2em; color: #222; text-decoration: none; font-weight: 600; cursor: pointer;" class="opt"> Account Settings </a></li>
+                            <li class="nav-item">  <a style=" font-size: 1.2em; color: #222; text-decoration: none; font-weight: 600; cursor: pointer;" class="opt">  Log Out </a></li>
+                        </ul>
+
+                    </div>
+
+                    <div style="background-color: #f4f4f4;border-bottom: 1px solid rgba(0,0,0,.2);height: 100px;">
+                        <h3 style="padding: 16px;font-weight: 600;font-size: 22px;">Notification</h3>
+                        <div style="color: #666;text-align: center;"> No unread notifications. </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </nav>
+    </header>
+
+
+
+   
+
+
+
+    <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - MyProjet - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+        
+        $(document).ready(() => {
+            $("#drop").hide();
+            var x = '@Html.Raw(Context.Session.GetString("Login"))';
+
+            if (x == "" || x == null) {
+                $("#drop").remove("#drop");
+            }
+
+
+            if (x != "") {
+                $("#log").removeAttr("href")
+                $("#log").click(() => {
+
+                    $("#drop").show();
+
+                });
+           
+            }
+
+
+
+        
+
+            $("#icon").click(() => {
+
+                $("#drop").hide();
+            });
+
+
+
+
+
+
+        })
+
+
+    </script>
+    <style>
+
+        .cancel-menu {
+            margin-left: auto;
+            margin-right: 50px;
+        }
+        
+
+        .nav-item {
+            margin-bottom: .5rem;
+        }
+
+        .opt {
+            color: #222
+        }
+
+
+        .account-info {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            margin-top: auto;
+        }
+
+        .account-info-picture {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+            .account-info-picture img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .account-info-name {
+            font-size: 14px;
+            color: var(--sidebar-main-color);
+            margin: 0 8px;
+            overflow: hidden;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .account-info-more {
+            color: var(--sidebar-main-color);
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            margin-left: auto;
+        }
+
+        .search {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #222;
+            position: relative;
+            top: 8.2px;
+        }
+
+        .none {
+            display: none
+        }
+
+        a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #222;
+        }
+
+            a.navbar-brand:hover {
+                border-radius: 5px;
+                background-color: bisque;
+                color: white;
+            }
+
+            a.nav-link:hover {
+                border-radius: 5px;
+                background-color: bisque;
+                color: white;
+            }
+    </style>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

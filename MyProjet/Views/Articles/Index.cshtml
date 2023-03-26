@@ -1,0 +1,98 @@
+﻿
+@{
+
+    MyProjet.Models.ArticlesViewModel artc = (MyProjet.Models.ArticlesViewModel)ViewBag.emp;
+}
+
+<head><link href="~/css/Articles.css" rel="stylesheet" />  </head>
+
+
+
+<div class="View">
+
+    <div style="text-align:center">
+        <p style=" width: 100%;" class="category">
+            @artc.NameAr
+
+        </p>
+    </div>
+    <div class="bg">
+        <div style="border: none;" class="card">
+
+            <div style="height: auto; text-align:center" class="top">
+                <img  style="height: 400px;"src="/images/@artc.image" />
+            </div>
+
+            <div class="bottom">
+                <h2>
+                    <a href="#">
+                        @artc.theme
+                    </a>
+                </h2>
+                <div class="author">
+                    <div class="profile"></div>
+
+                    <p class="name">
+                        By <a>
+                            @artc.UserName
+                        </a>
+                    </p>
+                </div>
+                <span id="sp" hidden>
+
+                    @artc.articlebreak
+                </span>
+
+                <span id="spr"> </span>
+                @*<div class="info">
+                        <ion-icon name="time"></ion-icon>
+                        <p class="info">2 days ago</p>
+                        <ion-icon name="chatboxes"></ion-icon>
+                        <p class="info"><a>13 comments</a></p>
+                    </div>*@
+            </div>
+            <div class="inline">
+                <div>
+                    <a class="@(artc.setmin == false ? "next" : "disabled")" asp-action="Index" asp-route-Num="@(artc.Idimgback)" style="float:left"><i class="fa-solid fa-circle-chevron-left"></i></a>
+                </div>
+                <div>
+                    <a class="@(artc.setmax == false ? "next" : "disabled")" asp-action="Index" asp-route-Num="@(artc.Idimg)" style="float:right"><i class="fa-solid fa-circle-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+   
+
+
+    .next {
+        padding: 5px;
+        font-size: 1.9em;
+        border-radius: 50%;
+        margin: 10px;
+    }
+
+    .disabled {
+        pointer-events: none;
+        cursor: default;
+        padding: 5px;
+        font-size: 1.9em;
+        border-radius: 50%;
+        margin: 10px;
+        display: none;
+    }
+
+    .inline {
+        display: inline-block;
+    }
+</style>
+
+
+<script>
+    let resul = $("#sp").text();
+    console.log(resul)
+    document.getElementById("spr").innerHTML = resul
+</script>

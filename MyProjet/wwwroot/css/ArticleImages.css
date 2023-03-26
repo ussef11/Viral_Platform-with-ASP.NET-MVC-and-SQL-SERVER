@@ -1,0 +1,10 @@
+﻿body {
+}
+
+
+@media (min-width : 640px)
+{
+    #container{
+        padding:74px;
+    }
+}

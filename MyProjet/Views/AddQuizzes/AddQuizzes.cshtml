@@ -1,0 +1,72 @@
+﻿@model MyProjet.Models.Quizzes
+@using Microsoft.AspNetCore.Http
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<link href="~/css/Form.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "AddQuizzes";
+}
+
+<h1>AddQuizzes</h1>
+
+
+
+<form asp-action="AddQuizzes" enctype="multipart/form-data" method="post">
+    <!--  General -->
+    @*<input id="art" asp-for="" name="Article" hidden />*@
+    <input id="art" asp-for="NumChoose" name="NumChoose" hidden />
+    <input hidden asp-for="UserName" name="UserName" value="@Context.Session.GetString("Login")" />
+    <div class="form-group">
+        <h2 class="heading">General</h2>
+        <div class="controls">
+            <input placeholder="Title" asp-for="title" type="text" id="name" class="floatLabel" name="title">
+
+        </div>
+
+        <div class="controls">
+            <input placeholder="discription" asp-fBor="discription" type="text" id="name" class="floatLabel" name="discription">
+
+        </div>
+        <div class="controls">
+            <input asp-for="imagesFlie" multiple="multiple" class="floatLabel" />
+         
+            @*<input asp-for="imagesFlie" name="images" accept="images/*" class="floatLabel" id="customFile">*@
+        </div>
+    </div>
+    <!--  Details -->
+    <div class="form-group">
+        <h2 class="heading">Details</h2>
+
+        <div class="controls">
+            <i class="fa fa-sort"></i>
+            <select name="theme" asp-for="theme" class="floatLabel">
+                <option value="blank"></option>
+                <option value="Health">Health</option>
+                <option value="Sport">Sport</option>
+                <option value="Travel">Travel</option>
+            </select>
+
+        </div>
+    </div>
+    <!--  More -->
+    <div class="form-group">
+
+        <div class="controls">
+
+
+            <input id="Button" type="submit" value="Save" />
+
+
+        </div>
+    </div>
+</form>
+
+
+<script>
+
+   
+
+
+</script>

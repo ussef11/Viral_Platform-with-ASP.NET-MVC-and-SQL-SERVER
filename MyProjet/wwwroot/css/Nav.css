@@ -1,0 +1,46 @@
+﻿@media screen and (max-width: 400px) {
+    #drop {
+        position: absolute;
+       
+        z-index: 600;
+        background-color: #fff;
+    }
+}
+
+
+@media screen and (min-width: 400px) {
+    #drop {
+        width: 268px;
+        position: absolute;
+        z-index: 600;
+        background-color: #fff;
+        right: 22px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #divopt {
+        right: 60px;
+        margin-left: auto;
+        margin-right: 0;
+        position: relative;
+        bottom: 32px;
+    }
+
+    #ulopt {
+        display: -webkit-inline-box;
+    }
+
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+#icon {
+    position: relative;
+    top: 22px;
+}

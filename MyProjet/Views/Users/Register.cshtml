@@ -1,0 +1,83 @@
+﻿@model MyProjet.Models.Users
+@{
+    ViewData["Title"] = "Register";
+}
+
+<link href="~/css/Register.css" rel="stylesheet" />
+
+  
+
+
+
+    <section>
+        <div id="container">
+
+            <div class="user signinBx">
+
+                <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg" alt="" /></div>
+                <div class="formBx">
+                    <div class="form">
+                        <div class="userVerify">
+
+                            <span>Something Wrong Please Try Againe</span>
+
+
+                        </div>
+                        <h2>Sign In</h2>
+                        <form asp-action="Login" method="post">
+                            <input type="text" name="UserName" asp-for="UserName" placeholder="Username" />
+                            <input type="password" name="Password" asp-for="Password" placeholder="Password" />
+                            <input type="submit" name="" value="Login" />
+                        </form>
+                        <p class="signup">
+                            Don't have an account ?
+                            <a href="#" onclick="toggleForm();">Sign Up.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="user signupBx">
+
+
+                <div class="formBx">
+                    <div class="form">
+
+                        <div class="userVerify">
+
+
+
+                            <span style="position: relative;top: 30px;" asp-validation-for="Email">Something Wrong Please Try Againe</span>
+
+
+
+                        </div>
+                        <h2>Create an account</h2>
+                        <form asp-action="Register" method="post">
+                            <input asp-for="UserId" hidden />
+                            <input type="text" name="UserName" asp-for="UserName" placeholder="Username" />
+                            <input type="email" name="Email" asp-for="Email" placeholder="Email Address" />
+                            <input type="password" name="Password" asp-for="Password" placeholder="Create Password" />
+                            <input type="password" name="" placeholder="Confirm Password" />
+                            <input type="submit" name="" value="Create" />
+                        </form>
+                        <p class="signup">
+                            Already have an account ?
+                            <a href="#" onclick="toggleForm();">Sign in.</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg" alt="" /></div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const toggleForm = () => {
+            const container = document.querySelector('#container');
+            container.classList.toggle('active');
+        };
+    </script>
+
+
+
+
+

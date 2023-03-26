@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MyProjet.Models.Account>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@if (Model.Count() > 0)
+{
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th> LoginName </th>
+                <th> Password </th>
+                <th> Categorie </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <th> @obj.LoginName  </th>
+                    <th> @obj.Password </th>
+                    <th> @obj.Categorie  </th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>No Result To Show</p>
+
+}

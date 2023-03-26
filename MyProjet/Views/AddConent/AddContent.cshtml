@@ -1,0 +1,63 @@
+﻿
+@model MyProjet.Models.Articles
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<link href="~/css/Form.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "AddContent";
+}
+
+@*<iframe name="votar" style="display:none;"></iframe>*@  @*target="votar"*@
+<form asp-action="AddContent" enctype="multipart/form-data" method="post">
+    <!--  General -->
+    <input id="art" asp-for="Article" name="Article" hidden />
+    <div class="form-group">
+        <h2 class="heading">General</h2>
+        <div class="controls">
+            <input placeholder="Title" asp-for="NameAr" type="text" id="name" class="floatLabel" name="NameAr">
+
+        </div>
+
+        <div class="controls">
+            <input placeholder="discription" asp-for="discription" type="text" id="name" class="floatLabel" name="discription">
+
+        </div>
+        <div class="controls">
+            <input asp-for="imagesFlie" multiple="multiple" class="floatLabel" />
+            @*<input asp-for="imagesFlie" name="images" accept="images/*" class="floatLabel" id="customFile">*@
+        </div>
+    </div>
+    <!--  Details -->
+    <div class="form-group">
+        <h2 class="heading">Details</h2>
+
+        <div class="controls">
+            <i class="fa fa-sort"></i>
+            <select name="theme" asp-for="theme" class="floatLabel">
+                <option value="blank"></option>
+                <option value="Health">Health</option>
+                <option value="Sport">Sport</option>
+                <option value="Travel">Travel</option>
+            </select>
+
+        </div>
+    </div>
+    <!--  More -->
+    <div class="form-group">
+        <h2 class="heading">More!</h2>
+        <div class="controls">
+
+
+            <input id="Button" type="submit" value="Save" />
+
+
+        </div>
+    </div>
+</form>
+
+
+@*<a href="../ArticleImg/Index?Num=10"
+    >Next</a>*@
+

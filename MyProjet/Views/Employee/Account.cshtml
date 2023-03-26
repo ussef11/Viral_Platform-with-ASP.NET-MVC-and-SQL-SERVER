@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MyProjet.Models.Account> 
+@{
+    ViewData["Title"] = "Account";
+}
+
+<div class="col-4 text-center">
+
+    <a asp-controller="Employee" asp-action="AddAccont"> Add Account</a>
+    <a asp-controller="Home" asp-action="index"> Home</a>
+</div>
+
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th> Login </th>
+                <th> password </th>
+                <th> actif </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var acc in Model)
+            {
+            <tr>
+                <th>@acc.LoginName</th>
+                <th>@acc.Password</th>
+                <th>@acc.actif</th>
+            </tr>
+            }
+
+        </tbody>
+
+        
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+     

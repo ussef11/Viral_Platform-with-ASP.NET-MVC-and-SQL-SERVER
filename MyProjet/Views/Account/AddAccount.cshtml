@@ -1,0 +1,64 @@
+﻿@model MyProjet.Models.Account
+@{
+    ViewData["Title"] = "AddAccount";
+}
+
+<h1>AddAccount</h1>
+
+<div class="" id="content">
+
+    <section data-section-id="1" data-share="" data-category="sign-up" data-component-id="6c5b97a6_01_awz" class="position-relative py-24 py-xl-40 bg-light">
+        <div class="container">
+            <div class="pt-8 pb-32 bg-white rounded">
+           
+                <div class="px-6 px-md-16 px-lg-24">
+                    <h2 class="display-5 mb-16" data-config-id="auto-txt-3-1">add<i class="fa-solid fa-triangle"></i></h2>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+                    <div class="mw-sm mw-md-none mx-auto px-md-12 px-lg-24">
+                        <form  method="post" asp-action="AddAccount" >
+                            <div class="row mb-12">
+                                <div class="col-12 col-md-6 mb-6 mb-md-0">
+                                    <div class="form-floating">
+                                        <input class="form-control" type="text" placeholder="Login" asp-for="LoginName" value="">
+                                        <label asp-for="LoginName" data-config-id="auto-txt-4-1">Your Login</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <input class="form-control" type="text" placeholder="Login" asp-for="Password" value="">
+                                        <label asp-for="Password" data-config-id="auto-txt-4-1">Your Login</label>
+
+
+                                        @*--------------Validation ----------*@
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <input class="form-control" type="text" placeholder="Login" asp-for="actif" value="">
+                                        <label asp-for="actif" data-config-id="auto-txt-4-1">Your Login</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-md-flex mb-16 align-items-center">
+                                <a class="d-flex align-items-center text-decoration-none" href="#">
+                                    <img class="img-fluid me-6" style="width: 22px;" src="wrexa-assets/logos/brands/google.svg" alt="" data-config-id="auto-img-1-1">
+                                    <span class="small text-secondary-dark" data-config-id="auto-txt-6-1">Sign Up with Google</span>
+                                </a>
+                                <div class="d-none d-md-block mx-8 bg-secondary" style="width: 1px; height: 12px;"></div>
+                                <div class="d-md-none ms-1 my-8 bg-secondary" style="width: 12px; height: 1px;"></div>
+                                <a class="d-flex align-items-center text-decoration-none" href="#">
+                                    <img class="img-fluid me-6" src="wrexa-assets/logos/brands/facebook.svg" alt="" data-config-id="auto-img-2-1">
+                                    <span class="small text-secondary-dark" data-config-id="auto-txt-7-1">Sign Up with Facebook</span>
+                                </a>
+                            </div>
+                            <div class="text-center">
+                                <input class="btn btn-primary" type="submit" data-config-id="auto-txt-8-1" value="Create Account">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

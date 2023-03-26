@@ -1,0 +1,199 @@
+﻿
+
+h2 {
+    font-size: 2.5em;
+    color: salmon;
+    text-underline-position: below;
+}
+/*---ELEMENTS---*/
+.section-name {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper {
+    width: 80vw;
+    margin: auto;
+    align-content: center;
+}
+
+
+
+
+
+
+
+
+/*---ARTICLE---*/
+article {
+    margin: 0.5em;
+    width: 55vw;
+    box-sizing: border-box;
+    transition: all 0.1s ease-in;
+    font-family: 'Dosis', sans-serif;
+}
+
+    article:hover {
+        border-color: transparent;
+        border-collapse: collapse;
+        top: 10px;
+        -webkit-box-shadow: 10px 10px 115px -30px rgba(0,0,0,0.37);
+        -moz-box-shadow: 10px 10px 115px -30px rgba(0,0,0,0.37);
+        box-shadow: 10px 10px 115px -30px rgba(0,0,0,0.37);
+    }
+
+        article:hover .card {
+            background-color: #DDDDDD;
+        }
+
+    article header {
+        border-bottom: 1px solid #EEEEEE;
+    }
+
+/*---CARD---*/
+.card {
+    max-width: 220px;
+    display: inline-block;
+    min-height: 250px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #EEEEEE;
+}
+
+    .card img {
+        background-color: chocolate;
+        max-height: 200px;
+        width: auto;
+        border-top-left-radius: 5px;
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+    }
+
+.card-content {
+    padding: 0.8em;
+    text-align: left;
+    margin: auto;
+    border-radius: 5px;
+}
+
+    .card-content span {
+        margin: 0.3em 0;
+       
+    }
+
+.card-category {
+    padding: 3px 5px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    width: auto;
+    border-radius: 2px;
+}
+
+.card-desc {
+    font-size: 1rem;
+    display: block;
+}
+
+.card-header {
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    display: block;
+}
+
+.contributor {
+    display: block;
+}
+
+.contributor-name {
+    font-size: 0.8em;
+}
+
+    .contributor-name a {
+        color: darksalmon;
+    }
+/*---AD---*/
+.advert {
+    display: block;
+    margin: 0.5em;
+    background-color: aquamarine;
+    text-align: center;
+    align-content: center;
+    flex-shrink: 0;
+}
+
+    .advert span {
+        display: inline-block;
+        margin: auto;
+    }
+
+    .advert:hover {
+        cursor: pointer;
+    }
+
+.ad-mrec {
+    width: 300px;
+    height: 250px;
+}
+
+.ad-halfpage {
+    width: 300px;
+    height: 600px;
+}
+
+.featured {
+    background-color: lightgoldenrodyellow;
+}
+/*---CATEGORY---*/
+.chicken {
+    background-color: brown;
+}
+
+/*---BUTTON---*/
+
+
+
+
+/*---MOBILE SCREEN---*/
+@media screen and (max-width : 22em) {
+    /*---NAVIGATION---*/
+
+    /*---ELEMENTS---*/
+    .wrapper {
+        width: auto;
+    }
+
+
+
+
+
+    /*---ARTICLE---*/
+    article {
+        width: 40vw;
+    }
+}
+
+/*---TABLET SCREEN ---*/
+@media screen and (min-width : 22em) and (max-width : 34em) {
+    /*---NAVIGATION---*/
+
+    /*---ELEMENTS---*/
+    .wrapper {
+        width: auto;
+    }
+}
+
+
+/* CSS Document */
+
+/*---DESKTOP SCREEN ---*/
+@media screen and (min-width: 34em) and (max-width : 55em) {
+    .wrapper {
+        width: 90vw;
+    }
+}

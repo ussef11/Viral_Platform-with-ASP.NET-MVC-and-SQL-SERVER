@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<MyProjet.Models.Account>
+@{
+    ViewData["Title"] = "AllAccount";
+}
+
+
+<div class="col-4 text-center">
+
+    <a asp-controller="Account" asp-action="AddAccount"> Add Account</a>
+    <a asp-controller="Home" asp-action="index"> Home</a>
+</div>
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th> Login </th>
+            <th> password </th>
+            <th> actif </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var acc in Model)
+        {
+        <tr>
+            <th>@acc.LoginName</th>
+            <th>@acc.Password</th>
+            <th>@acc.actif</th>
+            <td class="text-center">
+                <div class="w-75 btn-group" role="group">
+                    <a asp-controller="Account" asp-action="Edit" asp-route-LoginName="@acc.LoginName" class="btn btn-primary mx-2"> Edit</a>
+                    <a asp-controller="Account" asp-action="Delete" asp-route-LoginName="@acc.LoginName" class="btn btn-danger  mx-2"> Delete</a>
+                    <a asp-controller="Account" asp-action="Deletesql" asp-route-LoginName="@acc.LoginName" class="btn btn-danger  mx-2"> Deletesql</a>
+                </div>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model MyProjet.Models.Account
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Account</h1>
+
+<div class="" id="content">
+
+    <section data-section-id="1" data-share="" data-category="sign-up" data-component-id="6c5b97a6_01_awz" class="position-relative py-24 py-xl-40 bg-light">
+        <div class="container">
+            <div class="pt-8 pb-32 bg-white rounded">
+
+                <div class="px-6 px-md-16 px-lg-24">
+                    <h2 class="display-5 mb-16" data-config-id="auto-txt-3-1">Edit Account</h2>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+                    <div class="mw-sm mw-md-none mx-auto px-md-12 px-lg-24">
+
+
+                        <form method="post" asp-action="DeletePost">
+                            <input asp-for="LoginName" hidden />
+                            <div class="row mb-12">
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <label asp-for="Password"  data-config-id="auto-txt-4-1">Your Password</label>
+                                        <input class="form-control" disabled type="text" placeholder="Password" asp-for="Password" value="">
+
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <label asp-for="actif" data-config-id="auto-txt-4-1">Your actif</label>
+                                        <input class="form-control" disabled type="text" placeholder="actif" asp-for="actif" value="">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <input class="btn btn-primary" type="submit" data-config-id="auto-txt-8-1" value="Edit Account">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

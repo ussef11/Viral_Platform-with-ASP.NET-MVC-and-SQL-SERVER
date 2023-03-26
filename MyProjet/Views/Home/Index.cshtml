@@ -1,0 +1,455 @@
+﻿
+@using MyProjet;
+@model dynamic
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/css/Main.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+
+
+    <div id="grid" class="grid" style="width: 350px;float: right;">
+        <div id="shadow" style="
+    text-align: center;
+" class="border1">
+            <div class="card" style="border: none;">
+                <div class="h2">
+                    <h2>
+                        Top Posts
+                    </h2>
+                </div>
+
+                <ul style="margin-top: 30px;padding: 0;">
+
+                    @foreach (topPost artc in Model.topPost)
+                    {
+                        <li class="litop">
+
+                            <div class="meta">
+                                <div style="width: 100%;height: 226px;background: #444;margin: 0 auto;" class="divimg">
+                                    <img asp-controller="Articles" asp-action="Index" asp-route-Id="@artc.NumAr"  style="width: 100%;max-height: 100%;height: auto;" class="artimg" src="~/images/@artc.images"/> 
+                                </div>
+                            </div>
+                            <div style="margin-left: 4px;font-size: 1.125rem;" class="description">
+                                <p class="para">Parents</p>
+                                <h2 class="tit">  <a asp-controller="Articles" asp-action="Index" asp-route-Id="@artc.NumAr"> @artc.discription </a></h2>
+
+
+                            </div>
+                        </li>
+
+
+                    }
+
+
+
+                    @*<li class="litop">
+
+                        <div class="meta">
+                            <div class="divimg">
+                                <img class="artimg" src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg">  </img>
+                            </div>
+                        </div>
+                        <div style="margin-left: 4px;font-size: 1.125rem;" class="description">
+                            <p class="para">Parents</p>
+                            <h2 class="tit"></h2>
+
+
+                        </div>
+                    </li>*@
+
+                   
+
+                </ul>
+            </div>
+        </div>
+        @*-----------------------------------------------------------------*@
+        <div class="card" style="
+    border: none;
+">
+            <div style="box-shadow: rgb(245 237 5) 30px 30px 50px 1px;" class="card__image">
+                <img src="https://unsplash.it/400/608?image=123" alt="">
+
+                <div class="card__overlay card__overlay--indigo">
+                    <div class="card__overlay-content">
+                        <ul class="card__meta">
+                            <li><a href="#0"><i class="fa fa-tag"></i> Html5/Css3</a></li>
+                            <li><a href="#0"><i class="fa fa-clock-o"></i> 2 min ago</a></li>
+                        </ul>
+
+                        <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
+
+                        <ul class="card__meta card__meta--last">
+                            <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
+                            <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------------------- -->
+
+
+    <div class="divbody">
+        <div class="blog-card">
+            <div class="meta">
+                <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                <ul class="details">
+                    <li class="author"><a href="#">John Doe</a></li>
+                    <li class="date">Aug. 24, 2015</li>
+                    <li class="tags">
+                        <ul>
+                            <li><a href="#">Learn</a></li>
+                            <li><a href="#">Code</a></li>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="description">
+                <h1>Learning to Code</h1>
+                <h2>Opening a door to the future</h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                <p class="read-more">
+                    <a href="#">Read More</a>
+                </p>
+            </div>
+        </div>
+
+
+        <!-- ----------------------- -->
+
+
+
+
+
+
+
+
+        <div style="text-align: center;" class="cards">
+
+            @foreach (Articles art in Model.Articles)
+            {
+
+                <div class="card" style=" border: none; ">
+                    <div class="card__image-holder">
+                        <img style=" height: 240px;" class="card__image" src="~/images/@art.images" alt="wave" />
+                    </div>
+                    <div class="card-title">
+                        <a class="toggle-info btn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </a>
+                        <h2>
+                            @art.NameAr
+                            <small>Article from @art.UserName</small>
+                        </h2>
+                    </div>
+                    <div class="card-flap flap1">
+                        <div class="card-description">
+                            @art.discription
+                        </div>
+                        <div class="card-flap flap2">
+                            <div class="card-actions">
+                                <a asp-controller="Articles" asp-action="Index" asp-route-Id="@art.NumAr" class="btn">Read more</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            }
+
+
+
+        </div>
+
+
+
+        <!-- -------------------------------------------------------------------- -->
+
+
+
+        <ul style="
+  margin-top: 30px;
+  padding: 0;
+">
+
+            <li class="li">
+
+                <div class="meta">
+                    <div class="divimg">
+                        <img class="artimg" src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg">  </img>
+                    </div>
+                </div>
+                <div style="margin-left: 4px;font-size: 1.125rem;" class="description">
+                    <p class="para">Parents</p>
+                    <h2 class="tit">15 Parents Who Caught Their Kids Way Off Guard With How Well They Troll The Hell Out Of The System</h2>
+
+
+                </div>
+            </li>
+
+            <li class="li">
+
+                <div class="meta">
+                    <div class="divimg">
+                        <img class="artimg" src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg">  </img>
+                    </div>
+                </div>
+                <div style="margin-left: 4px;font-size: 1.125rem;" class="description">
+                    <p class="para">Parents</p>
+                    <h2 class="tit">15 Parents Who Caught Their Kids Way Off Guard With How Well They Troll The Hell Out Of The System</h2>
+
+
+                </div>
+            </li>
+
+            <li class="li">
+
+                <div class="meta">
+                    <div class="divimg">
+                        <img class="artimg" src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg">  </img>
+                    </div>
+                </div>
+                <div style="margin-left: 4px;font-size: 1.125rem;" class="description">
+                    <p class="para">Parents</p>
+                    <h2 class="tit">15 Parents Who Caught Their Kids Way Off Guard With How Well They Troll The Hell Out Of The System</h2>
+
+
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    </div>
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <div class="site__wrapper">
+        <div class="grid">
+            <div class="card" style="
+    border: none;
+">
+
+                <div  id="shadow1" class="card__image">
+                    <img src="https://unsplash.it/400/608?image=123" alt="">
+
+                    <div class="card__overlay card__overlay--indigo">
+                        <div class="card__overlay-content">
+                            <ul class="card__meta">
+                                <li><a href="#0"><i class="fa fa-tag"></i> Html5/Css3</a></li>
+                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 min ago</a></li>
+                            </ul>
+
+                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
+
+                            <ul class="card__meta card__meta--last">
+                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
+                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card" style="
+    border: none;
+">
+                <div class="card__image">
+                    <img src="https://unsplash.it/400/300?image=100" alt="">
+
+                    <div class="card__overlay card__overlay--blue">
+                        <div class="card__overlay-content">
+                            <ul class="card__meta">
+                                <li><a href="#0"><i class="fa fa-tag"></i> UI/UX</a></li>
+                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
+                            </ul>
+
+                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
+
+                            <ul class="card__meta card__meta--last">
+                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
+                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card" style="
+    border: none;
+">
+                <div class="card__image">
+                    <img src="https://unsplash.it/400/300?image=200" alt="">
+
+                    <div class="card__overlay card__overlay--indigo">
+                        <div class="card__overlay-content">
+                            <ul class="card__meta">
+                                <li><a href="#0"><i class="fa fa-tag"></i> UI/UX</a></li>
+                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
+                            </ul>
+
+                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
+
+                            <ul class="card__meta card__meta--last">
+                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
+                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card" style="
+    border: none;
+">
+                <div class="card__image">
+                    <img src="https://unsplash.it/400/300?image=300" alt="">
+
+                    <div class="card__overlay card__overlay--indigo">
+                        <div class="card__overlay-content">
+                            <ul class="card__meta">
+                                <li><a href="#0"><i class="fa fa-tag"></i> Tutorials</a></li>
+                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
+                            </ul>
+
+                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
+
+                            <ul class="card__meta card__meta--last">
+                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
+                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card" style="
+    border: none;
+">
+                <div class="card__image">
+                    <img src="https://unsplash.it/400/300?image=400" alt="">
+
+                    <div class="card__overlay card__overlay--blue">
+                        <div class="card__overlay-content">
+                            <ul class="card__meta">
+                                <li><a href="#0"><i class="fa fa-tag"></i> Tutorials</a></li>
+                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
+                            </ul>
+
+                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
+
+                            <ul class="card__meta card__meta--last">
+                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
+                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site__info">
+            <p>Placeholder images are served from <a target="_blank" href="https://unsplash.it">www.unsplash.it</a></p>
+            <p>Handcrafted by <a target="_blank" href="https://mithicher.github.io">Mithicher</a>. Tweet me on <a target="_blank" href="https://twitter.com/mithicher">Twitter</a></p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            var zindex = 10;
+
+
+            $("div.card").click(function (e) {
+
+                var isShowing = false;
+
+                if ($(this).hasClass("show")) {
+                    isShowing = true
+                }
+
+                if ($("div.cards").hasClass("showing")) {
+                    // a card is already in view
+                    $("div.card.show")
+                        .removeClass("show");
+
+
+                    if (isShowing) {
+                        // this card was showing - reset the grid
+                        $("div.cards")
+                            .removeClass("showing");
+                    } else {
+                        // this card isn't showing - get in with it
+                        $(this)
+                            .css({ zIndex: zindex })
+                            .addClass("show");
+
+
+                    }
+
+                    zindex++;
+
+                } else {
+                    // no cards in view
+                    $("div.cards")
+                        .addClass("showing");
+                    $(this)
+                        .css({ zIndex: zindex })
+                        .addClass("show");
+
+
+                    zindex++;
+                }
+
+            });
+        });
+    </script>
+
+
+</body>
+</html>
